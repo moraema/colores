@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Values from 'values.js'
 import './App.css'
+import DisplayColors from './componentes/DisplayColors';
 import FormColor from './componentes/FormColor';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <FormColor setList={setList} />
-     
+      <DisplayColors list={list}/>
     </div>
   )
 }

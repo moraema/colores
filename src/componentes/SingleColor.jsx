@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Clip from "/clipTransparent.png"
+import Clip from "./clipTransparent.png"
 
 const SingleColor = ({ hexColor }) => {
 
