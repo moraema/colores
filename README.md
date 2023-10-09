@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Investigacion de Git
+Git es un sistema de control de versiones distribuido, lo que significa que un clon local del 
+proyecto es un repositorio de control de versiones completos. Estos repositorios locales 
+plenamente funcionales permiten trabajar sin conexión o de forma remota con facilidad. 
+La flexibilidad y popularidad de Git lo convierte en una excelente opción para cualquier 
+equipo.
+Las ventajas de Git son numerosas como el desarrollo simultaneo, versiones de lanzamiento 
+más rápidas, integración incorporada, solido soporte técnico de la comunidad, directivas de 
+ramas.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Comandos Git
+### Configuración Básica
+- Iniciar un repositorio: `git init` 
+- Clonamos el repositorio de GitHub: `git clone <url>`
+- Añadimos todos los archivos para el commit: `git add .`
+- Hacemos el primer commit: `git commit -m “primer commit”`
+- Subimos al repositorio: `git push origin master`
 
-## Available Scripts
+### Git Clone
+- Clonamos el repositorio de GitHub: `git clone <url>`
+- Clonamos el repositorio de GitHub: `git clone <url> git demo`
 
-In the project directory, you can run:
+### Git Add
+- Añadimos todos los archivos para el commit: `git add .`
+- Añadimos el archivo al commit: `git add <archivo>`
+- Añadimos todos los archivos para el commit omitiendo los nuevos: `git add –all`
+- Añadimos todos los archivos con la extensión especifica: `git add *.txt`
+- Añadimos todos los archivos dentro de un directorio y extensión especifica: `git add docs/*.txt`
+- Añadimos todos los archivos dentro de un directorio: `git add docs/`
 
-### `npm start`
+### Git Commit
+- Carga en el HEAD los cambios realizados: `git commit -m “un commit”`
+- Agrega y carga en el HEAD los cambios realizados: `git commit -a -m “un commit”`
+- De haber conflictos los muestra: `git commit -a`
+- Agrega al último commit, este no se muestra como un nuevo commit en los logs. Se puede 
+  especificar un nuevo mensaje: `git commit --amend -m “un commit”`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Git Push
+- Subimos al repositorio: `git push <origen> <rama>`
+- Subimos un tag: `git push --tags`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Git Branch
+- Crea un Branch: `git branch <rama>`
+- Lista los Branch: `git branch`
+- Comando -d elimina el Branch y lo une a la master: `git branch -d <rama>`
+- Elimina sin preguntar: `git branch -D <rama>`
 
-### `npm test`
+### Git Log
+- Muestra los logs de los commit: `git log`
+- Muestra los cambios en los commit: `git log --oneline -stat`
+- Muestra los gráficos de los commit: `git log --oneline --graph`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Git Diff
+- Muestra los cambios realizados a un archivo: `git diff` `git diff –staged`
 
-### `npm run build`
+### Git Head
+- Saca un archivo del commit: `git reset HEAD <archivo>`
+- Devuelve el ultimo commit que se hizo y pone los cambios en staging: `git reset --soft HEAD^`
+- Devuelve el ultimo commit y todos los cambios: `git reset --hard Head^`
+- Devuelve los últimos dos commit y todos los cambios: `git reset --hard HEAD^^`
+- Rollback merge/commit: `git log git reset --hard <commit_sha>`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Git Remote
+- Agrega un repositorio remoto: `git remote add origin <url>`
+- Cambiar de remote: `git remote set-url origin <url>`
+- Remover repositorio: `git remote rm <name/origin>`
+- Muestra lista de repositorios: `git remote -v`
+- Muestra los branches remotos: `git remote show origin`
+- Limpiar todos los branches eliminados: `git remote prune origin`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Git Tag
+- Muestra una lista de todos los tags: `git tag`
+- Crea un nuevo tag: `git tag -a <versión> - m “este es la versión y”`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Git Rebase
+Los rebase se usan cuando trabajamos con branches esto hace que los branches se pongan al día con
+el master sin afectar al mismo.
+- Une el Branch actual con el master, esto no se puede ver como un merge: `git rebase`
+- Cuando resolvemos conflictos --continue continua la secuencia del rebase donde se pauso: 
+`git rebase --continue`
+- Omite el conflicto y sigue su camino: `git rebase --skip`
+- Devuelve todo al principio del rebase: `git rebase --abort`
+- Para hacer un rebase a un Branch en específico: `git rebase <namebranch>` 
 
-### `npm run eject`
+### Otros Comandos
+- Lista un estado actual del repositorio con lista de archivos modificados o agregados: `git 
+status`
+- Quita del HEAD un archivo y le pone el estado de no trabajado: `git checkout --<file>`
+- Crea un Branch en base a uno online: `git checkout -b newlocalbranchname origin/branch-name`
+- Busca los cambios nuevos y actualiza el repositorio: `git pull origin <rama>`
+- Cambiar de Branch: `git checkout <namebranch/tagname>`
+- Une al branch con el especificado: `git merge <rama>`
+- Verifica cambios en el repositorio online local: `git fetch`
+- Borra un archivo del repositorio: `git rm <archivo>`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Un pull request es una característica que se utiliza para solicitar que los cambios realizados 
+en una rama se funcionen en otra.
